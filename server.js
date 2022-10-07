@@ -80,7 +80,7 @@ app.get("/editar", (req, res) => {
 app.get("/remover", (req, res) => {
       let id = req.query["id"];
 
-      let sql = `DELETE FORM user WHERE id = ${id};`
+      let sql = `DELETE FROM user WHERE id = ${id};`
 
       db.exec(sql, (err) => {
             res.redirect("/");
