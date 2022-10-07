@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+
+
+* {
+      margin: 0;
+      box-sizing: border-box;
+}
+
+body {
+      width: 100vw;
+      height: fit-content;
+
+      background-color: #111;
+      color: #ecfbfb;
+
+      font-family: 'Quicksand', sans-serif;
+
+}
+
+.button {
+      color: inherit;
+      text-decoration: none;
+      border: 1px solid #3F51B5;
+      border-radius: 10px;
+
+      padding: 5px;
+
+      color: #3F51B5;
+
+      box-shadow: inset 0 0px 0 -1px #ecfbfb;
+      transition: box-shadow .15s ease-in-out;
+
+}
+
+.button:hover {
+      box-shadow: inset 0 -50px 0 -1px #ecfbfb;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Cadastrar novos Usuários</title>
+      <link rel="stylesheet" href="/css/cadastro.css">
+      <link rel="stylesheet" href="/css/global.css">
+</head>
+
+<body>
+      <%- include('../partials/header.ejs') %>
+            <form action="/cadastro" method="post">
+                  <h1>Cadastrar novo usuário</h1>
+                  <h1 class="error">
+                        <%= locals.error %>
+                  </h1>
+
+                  <label for="nome">Nome: </label>
+                  <input id="nome" name="nome" type="text" placeholder="Nome: ">
+
+                  <label for="cpf">CPF: </label>
+                  <input id="cpf" name="cpf" type="text" placeholder="CPF: ">
+
+                  <label for="genero">Tipo de Conta: </label>
+                  <select id="genero" name="genero">
+                        <option value="M">Masculino</option>
+                        <option value="F">Feminino</option>
+                  </select>
+
+                  <label for="email">EMail: </label>
+                  <input id="email" name="email" type="email" placeholder="EMail: ">
+
+                  <label for="tipoConta">Tipo de Conta: </label>
+                  <select id="tipoConta" name="tipoConta">
+                        <option value="Corrente">Corrente</option>
+                        <option value="Poupança">Poupança</option>
+                  </select>
+                  <label for="endereco">Endereço: </label>
+                  <input id="endereco" name="endereco" type="text" placeholder="Endereço: ">
+
+                  <label for="tel">Telefone: </label>
+                  <input id="tel" name="telefone" type="tel" placeholder="Telefone: ">
+
+                  <label for="dataNasc">Data de Nascimento: </label>
+                  <input id="dataNasc" name="dataNascimento" type="date">
+                  <label for="produtos">Produtos: </label>
+                  <div class="produtos" id="produtos">
+                        <% locals.produtos.forEach(function(produto) { %>
+                              <div class="produto">
+                                    <label>
+                                          <input type="checkbox" name="produto[]" value="<%= produto %>">
+                                          <%= produto %>
+                                    </label>
+                              </div>
+                              <% }); %>
+                  </div>
+
+                  <div class="controls">
+                        <input class="button" type="submit" value="Cadastrar">
+                        <input class="button" type="reset" value="Limpar">
+                  </div>
+            </form>
+</body>
+
+</html>

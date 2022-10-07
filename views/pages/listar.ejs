@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Listar Usuários</title>
+      <link rel="stylesheet" href="/css/buscar.css">
+</head>
+
+<body>
+      <%- include('../partials/header.ejs') %>
+      <% if(locals.result !=undefined){ %>
+            <div class="resultado">
+                  <% if(typeof locals.result == "string"){ %>
+                        <h1 class="error"><%= locals.result %></h1>
+                  <% }else { %>
+                        <table>
+                              <thead>
+                                    <th>Nº Conta</th>
+                                    <th>Nome</th>
+                                    <th>CPF</th>
+                                    <th>Gênero</th>
+                                    <th>Idade</th>
+                                    <th>Telefone</th>
+                                    <th>Tipo Conta</th>
+                                    <th>Endereço</th>
+                                    <th>EMail</th>
+                                    <th>Data de Nascimento</th>
+                                    <th>Data de Cadastro</th>
+                                    <th>Controls</th>                                           
+                              </thead>
+                              <tbody>
+                                    <% locals.result.forEach(function(user) { %>
+                                          <tr>
+                                                <td><%= user.id %></td>
+                                                <td><%= user.nome %></td>
+                                                <td><%= user.cpf %></td>
+                                                <td><%= user.genero %></td>
+                                                <td><%= user.idade %></td>
+                                                <td><%= user.tel %></td>
+                                                <td><%= user.tipoConta %></td>
+                                                <td><%= user.end %></td>
+                                                <td><%= user.email %></td>
+                                                <td><%= user.dataNascimento %></td>
+                                                <td><%= user.dataCadastro %></td>
+                                                <td>
+                                                      <div class="controls">
+                                                            <a class="button" href="/user?id=<%= user.id %>">Perfil</a>
+                                                            <a class="button" href="/editar?id=<%= user.id %>">Editar</a>
+                                                            <a class="button" href="/remover?id=<%= user.id %>">Remover</a> 
+                                                      </div>
+                                                </td> 
+                                          </tr>
+                                    <% }); %> 
+                              </tbody>
+                        </table>
+                  <% } %>
+            </div>
+      <% } %>
+</body>
+
+</html>

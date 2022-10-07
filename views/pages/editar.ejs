@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Editar Usuário</title>
+      <link rel="stylesheet" href="/css/cadastro.css">
+
+</head>
+
+<body>
+      <%- include('../partials/header.ejs') %>
+            <form action="/editar?id=<%= user.id %>" method="post">
+                  <h1>Editar usuário: </h1>
+
+                  <h1 class="error">
+                        <%= locals.err %>
+                  </h1>
+
+                  <label for="nome">Nome: </label>
+                  <input id="nome" name="nome" type="text" placeholder="Nome: " value="<%= user.nome %>">
+
+                  <label for="cpf">CPF: </label>
+                  <input id="cpf" name="cpf" type="text" placeholder="CPF: " value="<%= user.cpf %>">
+
+                  <label for="genero">Tipo de Conta: </label>
+                  <select id="genero" name="genero">
+                        <option value="M" <% if (user.genero=="M" ) { %>
+                              <%= "selected" %>
+                                    <% } %>>Masculino
+                        </option>
+                        <option value="F" <% if (user.genero=="F" ) { %>
+                              <%= "selected" %>
+                                    <% } %>>Feminino
+                        </option>
+                  </select>
+
+                  <label for="email">EMail: </label>
+                  <input id="email" name="email" type="email" placeholder="EMail: " value="<%= user.email %>">
+
+                  <label for="tipoConta">Tipo de Conta: </label>
+                  <select id="tipoConta" name="tipoConta">
+                        <option value="Corrente" <% if (user.tipoConta=="Corrente" ) { %>
+                              <%= "selected" %>
+                                    <% } %>>Corrente
+                        </option>
+                        <option value="Poupança" <% if (user.tipoConta=="Poupança" ) { %>
+                              <%= "selected" %>
+                                    <% } %>>Poupança
+                        </option>
+                  </select>
+                  <label for="endereco">Endereço: </label>
+                  <input id="endereco" name="endereco" type="text" placeholder="Endereço: " value="<%= user.end %>">
+
+                  <label for="tel">Telefone: </label>
+                  <input id="tel" name="telefone" type="tel" placeholder="Telefone: " value="<%= user.tel %>">
+
+                  <label for="dataNasc">Data de Nascimento: </label>
+                  <input id="dataNasc" name="dataNascimento" type="date"
+                        value="<%= new Date(user.dataNascimento).toISOString().split("T")[0] %>">
+                  <label for="produtos">Produtos: </label>
+                  <div class="produtos" id="produtos">
+                        <% locals.produtos.forEach(function(produto) { %>
+                              <div class="produto">
+                                    <label>
+                                          <input type="checkbox" name="produto[]" <% if (JSON.parse(user.produtos).indexOf(produto) != -1) { %>
+                                                <%= "checked" %>
+                                                      <% } %> value="<%= produto %>">
+                                          <%= produto %>
+                                    </label>
+                              </div>
+                              <% }); %>
+                  </div>
+
+                  <div class="controls">
+                        <input type="submit" value="Editar">
+                  </div>
+
+            </form>
+</body>
+
+</html>

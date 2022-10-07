@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>
+            <%= user.nome%>'s Profile
+      </title>
+      <link rel="stylesheet" href="/css/user.css">
+      <link rel="stylesheet" href="/css/global.css">
+</head>
+
+<body>
+            <main>
+                  <header>
+                        <img class="picture" src="<%= user.profUrl %>">
+                        <div class="menu">
+                              <a class="button" href="/">Index</a>
+                              <a class="button" href="/editar?id=<%= user.id %>">Editar</a>
+                              <a class="button" href="/remover?id=<%= user.profUrl %>">Remover</a>
+                              <a class="button" href="/listar">Listar</a>
+                        </div>
+                  </header>
+                  <main class="content">
+                        <div class="info">
+                              <div class="piece">
+                                    <h1>Nome: </h1>
+                                    <h2><%= user.nome %></h2>
+                              </div>
+                              <div class="piece">
+                                    <h1>CPF: </h1>
+                                    <h2><%= user.cpf %></h2>
+                              </div>
+                              <div class="piece">
+                                    <h1>Gênero: </h1>
+                                    <h2><%= user.genero %></h2>
+                              </div>
+                              <div class="piece">
+                                    <h1>Idade: </h1>
+                                    <h2> <%= user.idade %></h2>
+                              </div>
+                              <div class="piece">
+                                    <h1>Endereço: </h1>
+                                    <h2><%= user.end %></h2>
+                              </div>
+                              <div class="piece">
+                                    <h1>Data de Nascimento: </h1>
+                                    <h2><%= user.dataNascimento %></h2>
+                              </div>
+                              <div class="piece">
+                                    <h1>EMail: </h1>
+                                    <h2><%= user.email %></h2>
+                              </div>
+                              <div class="piece">
+                                    <h1>Telefone: </h1>
+                                    <h2><%= user.tel %></h2>
+                              </div>
+                              <div class="piece">
+                                    <h1>Tipo De Conta: </h1>
+                                    <h2><%= user.tipoConta %></h2>
+                              </div>
+                        </div>
+                        <div class="prod">
+                              <label for="produtos">Produtos: </label>
+                              <ul class="produtos" id="produtos">
+                                    <% JSON.parse(user.produtos).forEach(function(produto) { %>
+                                          <li>
+                                                <%= produto %>
+                                          </li>
+                                          <% }); %>
+                              </ul>
+                        </div>
+                  </main>
+            </main>
+</body>
+
+</html>

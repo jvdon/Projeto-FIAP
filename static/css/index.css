@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@500&display=swap');
+
+* {
+      margin: 0;
+}
+
+body {
+      width: 10vw;
+      height: 100vh;
+}
+
+main {
+      width: 100vw;
+      height: 80vh;
+
+      margin-top: 20px;
+
+      display: flex;
+      flex-direction: column;
+
+      gap: 50px;
+}
+
+.titulo {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      font-size: x-large;
+      font-family: 'Fira Sans', sans-serif;
+
+      gap: 20px;
+}
+
+.titulo h1 {
+      width: 300px;
+      text-align: center;
+
+      font-family: 'Fira Sans', sans-serif;
+
+      border-bottom: 2px double #3F51B5;
+}
+
+.about .content {
+      text-align: center;
+}
+
+.equipe .content {
+      display: grid;
+
+      grid-template-columns: repeat(3, 250px);
+      grid-template-rows: repeat(2, auto);
+
+      justify-content: center;
+
+      gap: 20px;
+}
+
+
+
+.membro .logo {
+      float: left;
+      color: #3F51B5;
+      font-size: 50px;
+}
+
+.membro .info h2 {
+      width: 80%;
+      float: right;
+
+      font-size: x-large;
+      text-align: center;
+
+      border-bottom: 1px solid #ecfbfb;
+}
+
+.mission .titulo h3 {
+      margin-bottom: 25px;
+}
+
+
+.mission .content {
+      display: grid;
+
+      grid-template-columns: repeat(3, 250px);
+      grid-template-rows: repeat(2, auto);
+
+      justify-content: center;
+
+      gap: 30px;
+
+      font-size: x-large;
+}
+
+.mission .content li::marker {
+      color: #3F51B5;
+}
+
+@media (max-width: 950px) {
+      .equipe .content, .mission .content{
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            
+            gap: 0;
+      }
+
+      .membro {
+            text-align: center;
+      }
+}

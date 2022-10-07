@@ -1,0 +1,90 @@
+main {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+}
+
+.busca {
+      width: 100%;
+      border-bottom: 1px solid #3F51B5;
+
+
+}
+
+.busca label {
+      font-size: larger;
+}
+
+.busca h1 {
+      text-align: center;
+      font-size: xx-large;
+}
+
+.busca form {
+      display: flex;
+      flex-direction: row;
+
+      justify-content: center;
+}
+
+.busca form input[type="text"] {
+      background-color: #444;
+      color: #ecfbfb;
+}
+
+.busca form input[type="text"] {
+      width: 50%;
+}
+
+.resultado {
+      width: calc(100%-10px);
+      border: 1px solid #3F51B5;
+}
+
+.resultado table,
+h1 {
+      width: 100%;
+      text-align: center;
+      font-size: larger;
+}
+
+.error {
+      color: #BB0002;
+}
+
+td a {
+      font-size: x-large;
+      vertical-align: middle;
+}
+
+.controls {
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      grid-template-rows: repeat(2, auto);
+}
+
+@media (max-width: 950px) {
+      .resultado {
+            width: 100%;
+      }
+
+      .resultado table {
+            display: flex;
+            overflow-y: auto;
+
+      }
+
+      .resultado tbody {
+            overflow-y: auto;
+      }
+
+      .resultado tr {
+            display: flex;
+            flex-direction: column;
+      }
+
+      .controls {
+            display: flex;
+      }
+}
