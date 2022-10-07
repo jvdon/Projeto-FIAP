@@ -12,11 +12,11 @@ let produtos = ['Cartão de Credito','Cartão de Débito','Previdência privada'
 
 app.set('view engine', 'ejs');
 
-app.use(express.static(__dirname + "/static"))
-app.use(parser.urlencoded())
+app.use(express.static(__dirname + "/static"));
+app.use(parser.urlencoded());
 
 app.get("/", (req, res) => {
-      res.render("pages/index")
+      res.render("pages/index");
 })
 
 app.get("/busca", (req, res) => {
@@ -44,9 +44,9 @@ app.get("/user", (req, res) => {
 app.get("/listar", (req, res) => {
       db.all("SELECT * FROM user;", (err, rows) => {
             if (err || rows.length == 0) {
-                  res.render("pages/listar", { result: "Nenhum usuário encontrado!" })
+                  res.render("pages/listar", { result: "Nenhum usuário encontrado!" });
             } else {
-                  res.render("pages/listar", { result: rows })
+                  res.render("pages/listar", { result: rows });
             }
       });
 })
@@ -56,9 +56,9 @@ app.get("/buscaCPF", (req, res) => {
       let sql = `SELECT * FROM user WHERE CPF LIKE '%${cpf}%';`;
       db.all(sql, (err, row) => {
             if (err || row.length == 0) {
-                  res.render("pages/busca", { result: "Usuário não encontrado!", url: cpf })
+                  res.render("pages/busca", { result: "Usuário não encontrado!", url: cpf });
             } else {
-                  res.render("pages/busca", { result: row, url: cpf })
+                  res.render("pages/busca", { result: row, url: cpf });
             }
       })
 });
@@ -80,12 +80,11 @@ app.get("/editar", (req, res) => {
 app.get("/remover", (req, res) => {
       let id = req.query["id"];
 
-      let sql = `DELETE FROM user WHERE id = ${id};`
+      let sql = `DELETE FROM user WHERE id = ${id};`;
 
       db.exec(sql, (err) => {
             res.redirect("/");
-      })
-
+      });
 })
 
 app.post("/cadastro", (req, res) => {
@@ -96,7 +95,7 @@ app.post("/cadastro", (req, res) => {
       let idade = getAge(dataNascimento);
 
       let dataCadastro = (new Date()).toLocaleDateString().replace(/\-/g, "/");
-      dataNascimento = (new Date(dataNascimento)).toLocaleDateString().replace(/\-/g, "/")
+      dataNascimento = (new Date(dataNascimento)).toLocaleDateString().replace(/\-/g, "/");
 
       console.log(produto);
 
