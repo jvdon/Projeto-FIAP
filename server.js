@@ -9,7 +9,6 @@ const db = new sqlite.Database(__dirname + "/user");
 
 let produtos = ['Cartão de Credito','Cartão de Débito','Previdência privada','Cheques','Título de Capitalização','Consórcio','Financiamento','Empréstimos','Seguro de Vida']
 
-
 app.set('view engine', 'ejs');
 
 app.use(express.static(__dirname + "/static"));
