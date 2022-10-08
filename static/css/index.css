@@ -57,8 +57,6 @@ main {
       gap: 20px;
 }
 
-
-
 .membro .logo {
       float: left;
       color: #3F51B5;
@@ -73,6 +71,10 @@ main {
       text-align: center;
 
       border-bottom: 1px solid #ecfbfb;
+}
+
+.mission .titulo {
+      width: fit-content;
 }
 
 .mission .titulo h3 {
