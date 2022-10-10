@@ -42,7 +42,7 @@
                                           <th>Controls</th>
                                     </thead>
                                     <tbody>
-                                    <% locals.result.forEach(function(user) { %>
+                                          <% locals.result.forEach(function(user) { %>
                                           <tr>
                                                 <td><%= user.id %></td>
                                                 <td><%= user.nome %></td>
@@ -62,7 +62,7 @@
                                                             <a class="button" href="/remover?id=<%= user.id %>">Remover</a> 
                                                       </div>
                                                 </td>                                           </tr>
-                                    <% }); %>
+                                          <% }); %>
                               </tbody>
                         </table>
                         <% } %>
